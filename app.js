@@ -44,7 +44,8 @@ bot.onText(/Bus/, function(msg, match) {
 
 bot.onText(/\/display/, function(msg, match) {
   var fromId = msg.from.id;
-  bot.sendMessage(fromId, msg.text);
+  var text = msg.text.split(' ');
+  mqttClient.publish('display', text[1]);
 });
 
 mqttClient.on('message', function(topic, message) {
