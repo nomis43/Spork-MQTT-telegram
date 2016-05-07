@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "mqtt": "^1.10.0",
     "node-telegram-bot-api": "^0.21.1"
   },
   "devDependencies": {},
