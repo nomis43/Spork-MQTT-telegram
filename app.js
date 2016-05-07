@@ -28,10 +28,7 @@ bot.onText(/\/start/, function (msg, match) {
 });
 
 bot.onText(/Temperature/, function(msg, match) {
-  // Check if the user is me
-  if (msg.from.id === config.chat_id) {
     console.log('hello');
-  }
 });
 
 // Any kind of message
