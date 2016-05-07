@@ -36,9 +36,10 @@ bot.onText(/Temperature/, function(msg, match) {
 });
 
 mqttClient.on('message', function(topic, message) {
+  console.log(topic);
+  console.log(message);
   if (topic === 'local-env') {
     room_env = JSON.parse(message);
-    console.log(room_env);
   }
 })
 
