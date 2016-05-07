@@ -48,6 +48,12 @@ bot.onText(/\/led/, function(msg, match) {
   mqttClient.publish('led', text[1]);
 });
 
+bot.onText(/\/display/, function(msg, match) {
+  var fromId = msg.from.id;
+  var text = msg.text.split(' ');
+  mqttClient.publish('display', text[1]);
+});
+
 mqttClient.on('message', function(topic, message) {
   console.log(topic);
   if (topic === 'local-env') {
@@ -56,12 +62,3 @@ mqttClient.on('message', function(topic, message) {
     next_bus = JSON.parse(message.toString('ascii'));
   }
 })
-
-// Any kind of message
-/*
-bot.on('message', function (msg) {
-  var chatId = msg.chat.id;
-  // photo can be: a file path, a stream or a Telegram file_id
-  console.log(msg);
-});
-*/
