@@ -9,6 +9,8 @@ var room_env = {};
 
 // Setup MQTT Client
 var mqttClient = mqtt.connect('mqtt://127.0.0.1', {port: 1883});
+mqttClient.subscribe('bus-monitor');
+mqttClient.subscribe('local-env');
 
 // Matches /start[whatever]
 bot.onText(/\/start/, function (msg, match) {
