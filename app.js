@@ -5,6 +5,8 @@ var config = require('./config');
 // Setup bot
 var bot = new TelegramBot(config.token, {polling: true});
 
+var room_env = {};
+
 // Setup MQTT Client
 var mqttClient = mqtt.connect('mqtt://127.0.0.1', {port: 1883});
 
@@ -30,6 +32,13 @@ bot.onText(/\/start/, function (msg, match) {
 bot.onText(/Temperature/, function(msg, match) {
     console.log('hello');
 });
+
+mqttClient.on('message', function(topic, message) {
+  if (topic === 'local-env') {
+    room_env = JSON.parse(message);
+    console.log(room_env);
+  }
+})
 
 // Any kind of message
 /*
