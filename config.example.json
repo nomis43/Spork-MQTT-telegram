@@ -1,4 +1,5 @@
 {
-  "token": "YOUR_TOKEN" ,
-  "chat_id": "YOUR_CHAT_ID"
+  "token": "YOUR_TOKEN",
+  "mosquitto_user": "USER",
+  "mosquitto_password": "PASSWORD"
 }

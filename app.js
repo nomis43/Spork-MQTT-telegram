@@ -9,7 +9,12 @@ var room_env = {};
 var next_bus = {};
 
 // Setup MQTT Client
-var mqttClient = mqtt.connect('mqtt://127.0.0.1', {port: 1883});
+var mqttClient = mqtt.connect('mqtt://127.0.0.1', {
+  port: 1883,
+  username: config.mosquitto_user,
+  password: config.mosquitto_password
+});
+
 mqttClient.subscribe('bus-monitor');
 mqttClient.subscribe('local-env');
 
