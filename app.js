@@ -32,14 +32,14 @@ bot.onText(/\/start/, function (msg, match) {
 });
 
 bot.onText(/Temperature/, function(msg, match) {
-    console.log('hello');
+  var fromId = msg.from.id;
+  bot.sendMessage(fromId, room_env.temperature + '°C');
 });
 
 mqttClient.on('message', function(topic, message) {
   console.log(topic);
-  console.log(message);
   if (topic === 'local-env') {
-    room_env = JSON.parse(message);
+    room_env = JSON.parse(message.toString('ascii'));
   }
 })
 
