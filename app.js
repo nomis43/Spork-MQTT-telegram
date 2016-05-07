@@ -42,6 +42,11 @@ bot.onText(/Bus/, function(msg, match) {
   bot.sendMessage(fromId, 'The next bus is a ' + next_bus.route + ' in ' + next_bus.duetime + ' min');
 });
 
+bot.onText(/\/display/, function(msg, match) {
+  var formId = msg.from.id;
+  bot.sendMessage(fromId, msg.text);
+});
+
 mqttClient.on('message', function(topic, message) {
   console.log(topic);
   if (topic === 'local-env') {
