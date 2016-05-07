@@ -42,10 +42,10 @@ bot.onText(/Bus/, function(msg, match) {
   bot.sendMessage(fromId, 'The next bus is a ' + next_bus.route + ' in ' + next_bus.duetime + ' min');
 });
 
-bot.onText(/\/display/, function(msg, match) {
+bot.onText(/\/led/, function(msg, match) {
   var fromId = msg.from.id;
   var text = msg.text.split(' ');
-  mqttClient.publish('display', text[1]);
+  mqttClient.publish('led', text[1]);
 });
 
 mqttClient.on('message', function(topic, message) {
