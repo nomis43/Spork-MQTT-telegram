@@ -43,7 +43,7 @@ bot.onText(/Bus/, function(msg, match) {
 });
 
 bot.onText(/\/display/, function(msg, match) {
-  var formId = msg.from.id;
+  var fromId = msg.from.id;
   bot.sendMessage(fromId, msg.text);
 });
 
