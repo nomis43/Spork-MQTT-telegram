@@ -39,7 +39,7 @@ bot.onText(/\/start/, function (msg, match) {
 
 bot.onText(/Temperature/, function(msg, match) {
   var fromId = msg.from.id;
-  bot.sendMessage(fromId, 'It is' + room_env.temperature + '°C inside.\nThe luminosity is ' + room_env.luminosity + ' Lux');
+  bot.sendMessage(fromId, 'It is ' + room_env.temperature + '°C inside.\nThe luminosity is ' + room_env.light + ' Lux');
 });
 
 bot.onText(/Bus/, function(msg, match) {
